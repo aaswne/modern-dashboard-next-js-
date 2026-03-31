@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Next.js Dashboard with Authentication
 
-First, run the development server:
+A modern and responsive dashboard application built with Next.js, featuring a secure user authentication system. This project demonstrates best practices for building scalable frontend applications with protected routes and state management.
+
+---
+
+## 🚀 Features
+
+* 🔐 User authentication (Login / Logout)
+* 🛡️ Protected routes
+* 📊 Dashboard UI with reusable components
+* 🌙 Dark mode support
+* ⚡ Fast performance with Next.js
+* 💾 Local storage/session handling (if applicable)
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** Next.js
+* **Language:** JavaScript / TypeScript
+* **Styling:** Tailwind CSS (or your styling choice)
+* **Authentication:** Custom / NextAuth / JWT (update based on your project)
+
+---
+
+## 📦 Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+```
+
+2. Navigate to the project directory
+
+```bash
+cd your-repo-name
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open in browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔑 Authentication Flow
 
-To learn more about Next.js, take a look at the following resources:
+* Users log in using their credentials
+* Authentication state is stored securely
+* Unauthorized users are redirected to the login page
+* Protected routes are only accessible after login
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Folder Structure
 
-## Deploy on Vercel
+```
+/components   → Reusable UI components  
+/pages        → Application routes  
+/hooks        → Custom React hooks  
+/utils        → Helper functions  
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📸 Screenshots
+
+*Add screenshots of your dashboard here*
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
