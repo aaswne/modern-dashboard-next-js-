@@ -1,10 +1,4 @@
-type Task = {
-  id: number;
-  title: string;
-  description: string;
-  status: string;
-  dueDate: string;
-};
+import type { Task } from "../../app/types"
 
 type DisplayProps = {
   tasks: Task[];

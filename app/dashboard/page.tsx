@@ -5,17 +5,10 @@ import Header from "../components/Header";
 import Controls from "../components/Controls";
 import Display from "../components/Display";
 import Form from "../components/Form";
-
-type Task = {
-  id: number | null;
-  title: string;
-  description: string;
-  status: string;
-  dueDate: string;
-};
+import type { Task } from "../../app/types"
 
 const emptyForm: Task = {
-  id: null,
+  id: 0,
   title: "",
   description: "",
   status: "Todo",
