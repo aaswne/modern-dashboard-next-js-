@@ -1,34 +1,34 @@
-# 🧩 Next.js Dashboard (with Auth)
+# Task Management Dashboard
 
-This is a simple dashboard project I built using Next.js.  
-Main goal was to practice building a clean UI + handling authentication + managing state properly.
-
-It’s not super complex, but covers the core things you actually need in a real app.
+This is a simple Task Management Dashboard built as part of a frontend assignment. The goal was to create a clean and functional UI using modern tools like Next.js, TypeScript, Tailwind CSS, and shadcn/ui.
 
 ---
 
-## 🚀 What this project does
+## What this app does
 
-- Login / Logout flow  
-- Basic protected routes (users can’t access pages without login)  
-- Dashboard layout with reusable components  
-- Dark mode support  
-- Data stored in localStorage (for now)
-
----
-
-## 🛠️ Tech I used
-
-- Next.js  
-- TypeScript  
-- Tailwind CSS  
-- LocalStorage  
+- Lets users log in (mock authentication using localStorage)
+- View all tasks in a dashboard
+- Create new tasks using a modal form
+- Edit and delete existing tasks
+- Change task status (Todo, In Progress, Completed)
+- Search tasks by title
+- Filter tasks based on status
+- Sort tasks by due date
 
 ---
 
-## 📦 How to run this
+## Tech Stack
 
-Clone the repo:
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+---
+
+## How to run this project
+
+1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/your-username/your-repo.git

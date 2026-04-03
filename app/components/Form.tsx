@@ -1,18 +1,6 @@
 "use client";
 
-type FormProps = {
-    formData: {
-        id: number | null;
-        title: string;
-        description: string;
-        status: string;
-        dueDate: string;
-    };
-    setFormData: React.Dispatch<any>;
-    handleSubmit: (e: React.FormEvent) => void;
-    mode: "create" | "edit";
-    handleClose: () => void;
-};
+import { FormProps } from "../../app/types"
 
 function Form(props: FormProps) {
     const { formData, setFormData, handleSubmit, mode, handleClose } = props;

@@ -10,40 +10,29 @@ import { Button } from "@/components/ui/button";
 
 type ControlsProps = {
   handleOpen: () => void;
+  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  search: string;
 };
 
-function Controls(props: ControlsProps) {
-  const { handleOpen } = props;
-
-  console.log("Controls rendered 🎛️");
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("Searching for:", e.target.value);
-    // TODO: connect search logic later
-  };
-
+function Controls({ handleOpen, handleSearch, search }: ControlsProps) {
   const handleSelectChange = (value: string) => {
     console.log("Filter selected:", value);
-    // maybe filter tasks here later
   };
 
   const onAddClick = () => {
-    console.log("Opening form ➕");
     handleOpen();
   };
 
   return (
     <div className="mb-6 flex flex-col gap-4 rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 md:flex-row md:items-center md:justify-between">
-      
-      {/* search */}
       <Input
         className="w-50"
         type="search"
         placeholder="Search tasks..."
         onChange={handleSearch}
+        value={search}
       />
 
-      {/* filter */}
       <Select onValueChange={handleSelectChange}>
         <SelectTrigger>
           <SelectValue placeholder="Filter by status" />
@@ -56,7 +45,6 @@ function Controls(props: ControlsProps) {
         </SelectContent>
       </Select>
 
-      {/* add button */}
       <Button onClick={onAddClick}>+ Add Task</Button>
     </div>
   );
