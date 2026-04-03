@@ -28,10 +28,10 @@ function Page() {
     if (!storedTasks) return;
 
     try {
-      const parsedTasks = JSON.parse(storedTasks);
+      const parsedTasks: Task[] = JSON.parse(storedTasks);
       setTasks(parsedTasks);
-    } catch (err) {
-      console.error("Failed to parse localStorage tasks", err);
+    } catch (error) {
+      console.error("Failed to load tasks from localStorage:", error);
       setTasks([]);
     }
   }, []);
@@ -55,14 +55,14 @@ function Page() {
     resetForm();
   };
 
-  const handleEdit = (item: Task) => {
+  const handleEdit = (task: Task) => {
     setMode("edit");
-    setFormData({ ...item });
+    setFormData(task);
     setOpen(true);
   };
 
   const handleDelete = (id: number) => {
-    const updatedTasks = tasks.filter((item) => item.id !== id);
+    const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
   };
 
@@ -70,13 +70,13 @@ function Page() {
     e.preventDefault();
 
     if (!formData.title.trim() || !formData.description.trim()) {
-      alert("Enter title and description at least");
+      alert("Please enter both title and description.");
       return;
     }
 
     if (mode === "edit") {
-      const updatedTasks = tasks.map((item) =>
-        item.id === formData.id ? formData : item
+      const updatedTasks = tasks.map((task) =>
+        task.id === formData.id ? formData : task
       );
       setTasks(updatedTasks);
     } else {
@@ -84,23 +84,25 @@ function Page() {
         ...formData,
         id: Date.now(),
       };
-      setTasks((prev) => [...prev, newTask]);
+
+      setTasks((prevTasks) => [...prevTasks, newTask]);
     }
 
-    setOpen(false);
-    resetForm();
+    handleClose();
   };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+  const handleSearch = (value: string) => {
     setSearch(value);
-    console.log("searchword", value);
   };
 
-  const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(search.toLowerCase()) ||
-    task.description.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredTasks = tasks.filter((task) => {
+    const searchValue = search.toLowerCase();
+
+    return (
+      task.title.toLowerCase().includes(searchValue) ||
+      task.description.toLowerCase().includes(searchValue)
+    );
+  });
 
   return (
     <div className="p-10">
@@ -112,7 +114,7 @@ function Page() {
         search={search}
       />
 
-      {open ? (
+      {open && (
         <Form
           formData={formData}
           setFormData={setFormData}
@@ -120,7 +122,7 @@ function Page() {
           mode={mode}
           handleClose={handleClose}
         />
-      ) : null}
+      )}
 
       <Display
         tasks={filteredTasks}

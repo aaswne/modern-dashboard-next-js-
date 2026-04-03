@@ -10,27 +10,23 @@ import { Button } from "@/components/ui/button";
 
 type ControlsProps = {
   handleOpen: () => void;
-  handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearch: (value: string) => void;
   search: string;
 };
 
 function Controls({ handleOpen, handleSearch, search }: ControlsProps) {
   const handleSelectChange = (value: string) => {
-    console.log("Filter selected:", value);
-  };
-
-  const onAddClick = () => {
-    handleOpen();
+    console.log("Selected status:", value);
   };
 
   return (
     <div className="mb-6 flex flex-col gap-4 rounded-xl border bg-white p-4 shadow-sm dark:bg-zinc-900 md:flex-row md:items-center md:justify-between">
       <Input
-        className="w-50"
         type="search"
         placeholder="Search tasks..."
-        onChange={handleSearch}
+        className="w-50"
         value={search}
+        onChange={(e) => handleSearch(e.target.value)}
       />
 
       <Select onValueChange={handleSelectChange}>
@@ -45,7 +41,7 @@ function Controls({ handleOpen, handleSearch, search }: ControlsProps) {
         </SelectContent>
       </Select>
 
-      <Button onClick={onAddClick}>+ Add Task</Button>
+      <Button onClick={handleOpen}>+ Add Task</Button>
     </div>
   );
 }
