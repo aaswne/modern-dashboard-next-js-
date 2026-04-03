@@ -26,6 +26,33 @@ This is a simple Task Management Dashboard built as part of a frontend assignmen
 
 ---
 
+app/
+  login/
+  dashboard/
+  layout.tsx
+  page.tsx
+  globals.css
+  types.ts
+
+components/
+  ui/              // shadcn components
+  TaskForm.tsx
+  TaskList.tsx
+  TaskCard.tsx
+
+lib/
+  utils.ts
+
+public/
+
+.gitignore
+README.md
+package.json
+tsconfig.json
+next.config.ts
+
+---
+
 ## How to run this project
 
 1. Clone the repo
